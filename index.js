@@ -20,13 +20,12 @@ inputElement.addEventListener('keyup', function() {
 
   var listItemsString = '';
 
-  classMembers
+  var filtered = classMembers
     .filter(function(name) {
       return name.indexOf(searched) === 0;
-    })
-    // .filter() returns an array! :)
-    // so you can chain and use the .forEach()
-    .forEach(function(name) {
+    });
+  
+  filtered.forEach(function(name) {
       listItemsString += '<li>'+name+'</li>';
     });
 
