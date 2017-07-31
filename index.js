@@ -15,9 +15,10 @@ var resultListElement = document.getElementById('list-of-results');
 
 inputElement.addEventListener('keyup', function() {
   // remove the items which are in the list
-  resultListElement.textContent = '';
 
   var searched = inputElement.value;
+
+  var listItemsString = '';
 
   classMembers
     .filter(function(name) {
@@ -26,8 +27,8 @@ inputElement.addEventListener('keyup', function() {
     // .filter() returns an array! :)
     // so you can chain and use the .forEach()
     .forEach(function(name) {
-      var itemElement = document.createElement('li');
-      itemElement.textContent = name;
-      resultListElement.appendChild(itemElement);
+      listItemsString += '<li>'+name+'</li>';
     });
+
+  resultListElement.innerHTML = listItemsString;
 });
